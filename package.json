@@ -7,13 +7,17 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5",
+    "@sap/xssec": "^3.2.13",
     "express": "^4",
-    "passport": "^0.6.0",
-    "hdb": "^0.19.0"
+    "hdb": "^0.19.0",
+    "passport": "^0.6.0"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.102.0",
     "sqlite3": "^5.0.2"
+  },
+  "engines": {
+    "node": "^16"
   },
   "scripts": {
     "start": "cds run",
@@ -51,12 +55,16 @@
   ],
   "cds": {
     "requires": {
-        "db": {
+      "db": {
         "kind": "sql"
-        }
+      },
+      "uaa": {
+        "kind": "xsuaa",
+        "credentials": {}
+      }
     },
     "hana": {
-        "deploy-format": "hdbtable"
+      "deploy-format": "hdbtable"
     }
-}
+  }
 }
